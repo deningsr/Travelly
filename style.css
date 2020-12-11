@@ -47,6 +47,11 @@ button {
   border: none;
   font-size: 1.8rem;
   cursor: pointer;
+  transition: background 0.5s ease-in-out;
+}
+
+button:hover {
+  background: #448acc;
 }
 
 /* Nav section with hero */
@@ -110,6 +115,7 @@ nav ul {
   display: flex;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 
 .locations-head {
@@ -137,13 +143,26 @@ nav ul {
 }
 
 .moving-cloud-1 {
+  animation: cloudAnimation 3s infinite alternate ease-in-out;
+  z-index: 0;
 }
 
 .moving-cloud-2 {
-  top: 200%;
+  top: 20%;
   z-index: -1;
   opacity: 0.5;
+  animation: cloudAnimation 4s infinite alternate ease-in-out;
 }
+
+@keyframes cloudAnimation {
+  from {
+    transform: translate(10%, -10%);
+  }
+  to {
+    transform: translate(0%, 0%);
+  }
+}
+
 @media screen and (max-width: 932px) {
   html {
     font-size: 45%;
@@ -153,5 +172,18 @@ nav ul {
   }
   #logo {
     padding: 2rem;
+  }
+  .cloud {
+    height: 40rem;
+  }
+  .moving-cloud-1 {
+    z-index: -1;
+  }
+  .moving-cloud-2 {
+    z-index: -2;
+  }
+  .locations-head h3 {
+    -webkit-text-fill-color: white;
+    background: rgba(19, 28, 29, 0.8);
   }
 }
